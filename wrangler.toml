@@ -1,3 +1,6 @@
 name = "decap-cms-auth"
 main = "src/index.js"
 compatibility_date = "2023-03-24"
+
+# Requis par `wrangler preview`, la commande de Workers Builds pour les branches hors production.
+[previews]
