@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@12.13.0",
   "scripts": {
     "start": "wrangler dev",
     "deploy": "wrangler deploy",
