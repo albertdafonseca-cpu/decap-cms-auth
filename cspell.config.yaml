@@ -16,6 +16,8 @@ ignorePaths:
   - pnpm-lock.yaml
   # Claude Code session hooks, written in French (not part of the Worker).
   - .claude/**
+  # Claude Code session instructions, written in French.
+  - CLAUDE.md
 words:
   - cooldown
   - CVEs
