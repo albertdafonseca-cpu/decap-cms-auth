@@ -26,7 +26,7 @@ Le code lit aussi `GITHUB_HOSTNAME` et les variables `GITLAB_*`, inutilisées ic
   - pnpm épinglé par `"packageManager": "pnpm@12.13.0"` dans `package.json`. Sans lui, Cloudflare prend pnpm 9, qui ne lit pas les `overrides` de `pnpm-workspace.yaml` et refuse le lockfile ;
   - le lockfile est écrit par pnpm 12 (il porte sa propre version) : le régénérer avec `pnpm install --lockfile-only` de la même version, jamais à la main ;
   - Node vient de `.nvmrc` (v26) ; `engineStrict: true` dans `pnpm-workspace.yaml`.
-- Le journal d'un build en échec n'est **pas** transmis à GitHub (contrôle vide) : il faut le demander à l'utilisateur, depuis l'onglet **Builds** (et non Deployments) du Worker.
+- Le journal d'un build en échec n'est **pas** transmis à GitHub (contrôle vide). Une session le lit elle-même avec le connecteur « Cloudflare API » (permission Workers CI Read ; `GET /accounts/{compte}/builds/workers/{étiquette du Worker}/builds`, puis `…/builds/builds/{build_uuid}/logs` ; vérifié le 05/11/2026). À défaut de connecteur, le demander à l'utilisateur, depuis l'onglet **Builds** (et non Deployments) du Worker.
 - Une session travaille sur sa branche et passe par une PR vers `main` ; fusion seulement sur demande explicite (elle déploie la production).
 
 ## Vérifier
